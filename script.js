@@ -67,6 +67,7 @@ const addToCart = (name, price) => {
 const updateCartModal = () => {
   cartItemsContainer.innerHTML = "";
   let total = 0;
+  let quantidade = 0;
   cart.map((item) => {
     const cartItemsElement = document.createElement("div");
     cartItemsElement.classList.add(
@@ -92,6 +93,7 @@ const updateCartModal = () => {
     `;
 
     total += item.qntd * item.price;
+    quantidade += item.qntd;
 
     cartItemsContainer.appendChild(cartItemsElement);
   });
@@ -101,7 +103,7 @@ const updateCartModal = () => {
     currency: "BRL",
   });
 
-  cartCount.innerText = cart.length;
+  cartCount.innerText = quantidade;
 };
 
 // Removendo item do carrinho
